@@ -1,5 +1,5 @@
 # use a node base image
-FROM node:abdulahad/calculater
+FROM node:alpine-7
 
 # set maintainer
 LABEL maintainer "abdulahaduitian@gmail.com"
