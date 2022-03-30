@@ -1,14 +1,18 @@
-# use a node base image
 FROM node:10-alpine
 
 # set maintainer
 LABEL maintainer "abdulahaduitian@gmail.com"
 
-# set a health check
-HEALTHCHECK --interval=5s \
-            --timeout=5s \
-            CMD curl -f http://10.248.205.203:8080 || exit 1
 
 
-# tell docker what port to expose
+WORKDIR /app
+
+COPY package.json ./
+
+COPY yarn.lock ./
+
+COPY . .
+
 EXPOSE 8080
+
+CMD ["npm", "start"]
