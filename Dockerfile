@@ -5,7 +5,10 @@ LABEL maintainer "abdulahaduitian@gmail.com"
 
 
 
-WORKDIR /app
+WORKDIR /job/Docker-image-build/ws/
+
+
+RUN npm run build
 
 COPY package.json ./
 
@@ -13,8 +16,5 @@ COPY yarn.lock ./
 
 COPY . .
 
-RUN npm run build
 
 EXPOSE 8080
-
-CMD ["npm", "start"]
